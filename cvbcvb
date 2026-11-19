@@ -1,0 +1,11 @@
+Hi Abhishek, I have reviewed the points added to the story. Below are the decisions taken during the implementation:
+
+D3 – Invalid PA codes: Invalid, non-onboarded and country-mismatched PA codes are excluded, and processing continues with the remaining valid codes. If no valid PA codes remain, dealership access is denied with 403 and error code 1001.
+
+D6 – Default PA code: If the primary PA code is onboarded and valid, it is selected as the default. Otherwise, the first valid secondary PA code from the sorted list is selected. An existing active PA is retained if it is still valid for the same user.
+
+D5 – Sorting: Numerical-aware ascending sorting is already implemented to support both numeric and alphanumeric PA codes.
+
+PII masking: I have avoided logging actual PA codes in the newly added validation logic. Could someone please guide me on how PII masking is currently implemented in the system and how we can reuse the existing masking utility in our code?
+
+The core business logic is aligned with the updated clarifications. Verification of the standard error response utility and PII masking in GCP logs is still pending.
